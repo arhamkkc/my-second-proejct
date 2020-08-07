@@ -1,0 +1,9 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h5>Add Category <a class="btn btn-info" href="{% url 'add_category'%}">Add</a></h5>
+  {% for cats in cat %}
+    <ul>
+        <li><h5>{{cats}} </h5> </li>    <a  class = 'btn btn-warning' href="{% url 'update_cat' id=cats.id%}">Update</a> | <a class="btn btn-danger" href="{% url 'delete_cat' id=cats.id%}">Delete</a>
+    </ul>
+  {% endfor %}
+{% endblock %}

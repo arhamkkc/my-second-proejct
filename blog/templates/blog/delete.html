@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    
+<p class="mt-2">Are you sure you want to Delete?</p>
+    <form  method="POST" action="{% url 'delete' id=photo.id%}">
+        {% csrf_token %}
+        <a class="btn btn-primary" href="{% url 'home'%}">Cancel</a>
+        <button class="btn btn-danger">Delete</button>
+    </form>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+
+{% endblock %}

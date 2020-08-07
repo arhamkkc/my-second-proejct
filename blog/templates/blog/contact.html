@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% block title %}Auffy Vindhani -Contact{% endblock title %}
+{% block content %}
+<!-- for cotactform -->
+  <div class="container my-3">
+    <div class="col-xs-3">
+      {% if messages %} 
+        {% for message in messages %}
+          <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}success{% endif %}"><small>{{message}}</small></div>
+        {% endfor %}
+        
+      {% endif %}
+      <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-primary">submit</button>          
+      </form>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+

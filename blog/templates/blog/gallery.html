@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% block title %}Auffy Vindhani -Gallery{% endblock title %}
+{% block content %}
+<div class="container my-2">
+    <h1 class = 'text-center'>Galleries</h1>
+  <div class="row">
+    <!-- this is for image -->
+    {% for cats in cat %} 
+    <a href="{% url 'cat_detail' cats.category_name %}">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 my-3">   
+      <div class="card" style="width: fit-content;">
+        <img src="media/{{cats.category_image}}" class="card-img-top" alt="..." style="height: 255px;">
+      </div>
+      <!-- this is for text  -->
+      <a href="{% url 'cat_detail' cats.category_name %}"><h4 style="text-align: center;">{{cats.category_name}}</h4>
+    </div>
+    </a>
+    {% endfor %}
+  </div>
+  </div>
+
+{% endblock %}

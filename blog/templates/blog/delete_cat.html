@@ -1,0 +1,9 @@
+{% extends "blog/base.html" %}
+{% block content %}
+  <h6 style="color: red;">Are you sureyou want to delete this category "{{cat.category_name}}''. All Photos regarding this will be permanently deleted</h6>
+<form method="POST" action="{% url 'delete_cat' id=cat.id %}">
+    {% csrf_token %}
+    <a class="btn btn-primary" href="{% url 'show_cat'%}">Back</a>
+    <button class="btn btn-danger">Delete</button>
+</form>
+  {% endblock %}

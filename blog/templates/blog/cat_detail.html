@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% block title %}Auffy Vindhani -{{cat.category_name}}{% endblock title %}
+{% block content %}
+<div class="container">
+    <h1 class="text-center">{{cat.category_name}}</h1>
+    <!-- for showing all the photo in that specific category -->
+    {% for photos in photo %}
+    <div style="text-align: center;">
+        <img src="media/{{photos.image}}" class="img-fluid my-2"  alt="Responsive image">
+        <br>
+    </div>
+    <!-- for client -->
+    {% if user.is_authenticated %}
+        <a class = 'btn btn-warning'href="{% url 'update' id=photos.id %}">Update</a>
+        <a class = 'btn btn-danger'href="{% url 'delete' id=photos.id %}">Delete</a>
+    {% endif %}
+        
+    {% endfor %}
+</div>
+{% endblock %}
+    
